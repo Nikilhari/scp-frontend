@@ -1,0 +1,399 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(3px);
+}
+
+.modalContainer {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 700px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 10px;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modalHeader {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eaeaea;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f8f8;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.modalHeader h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.closeButton {
+    background: none;
+    border: none;
+    font-size: 1.7rem;
+    cursor: pointer;
+    color: #888;
+    transition: color 0.2s;
+}
+
+.closeButton:hover {
+    color: #333;
+}
+
+.stepIndicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f8f8f8;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #888;
+}
+
+.stepNumber {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: white;
+}
+
+.activeStep {
+    color: var(--button-color, #4a90e2);
+}
+
+.activeStep .stepNumber {
+    background-color: var(--button-color, #4a90e2);
+}
+
+.completedStep {
+    color: #4CAF50;
+}
+
+.completedStep .stepNumber {
+    background-color: #4CAF50;
+}
+
+.stepDivider {
+    height: 2px;
+    width: 60px;
+    background-color: #ddd;
+    margin: 0 10px;
+}
+
+.checkoutForm {
+    padding: 20px;
+}
+
+.shippingDetails,
+.orderConfirmation,
+.paymentStep {
+    margin-bottom: 20px;
+}
+
+.formGroup {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.formRow {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.formGroup label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #444;
+}
+
+.formGroup input,
+.formGroup textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.2s;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+    border-color: var(--button-color, #4a90e2);
+    outline: none;
+}
+
+.inputError {
+    border-color: #e74c3c !important;
+}
+
+.errorMessage {
+    color: #e74c3c;
+    font-size: 0.8rem;
+    margin-top: 4px;
+    display: block;
+}
+
+.formActions {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #eaeaea;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.backButton,
+.continueButton {
+    padding: 12px 25px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.backButton {
+    background-color: white;
+    border: 1px solid #ddd;
+    color: #666;
+}
+
+.backButton:hover {
+    background-color: #f1f1f1;
+}
+
+.backButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.continueButton {
+    background-color: var(--button-color, #4a90e2);
+    border: none;
+    color: white;
+    min-width: 180px;
+}
+
+.continueButton:hover {
+    background-color: var(--button-hover-color, #3a7bc8);
+}
+
+.continueButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #a0a0a0;
+}
+
+.orderSummary {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.orderSummary h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.summaryItem {
+    margin-bottom: 15px;
+}
+
+.summaryItem span {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.summaryItem p {
+    margin: 4px 0;
+    color: #555;
+}
+
+.priceBreakdown {
+    margin-top: 20px;
+    border-top: 1px solid #eaeaea;
+    padding-top: 15px;
+}
+
+.priceRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.totalRow {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eaeaea;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.discountAmount {
+    color: #2ecc71;
+}
+
+.amount {
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: 700;
+}
+
+.paymentHeader{
+    margin-bottom: 10px;
+}
+
+.cardElementContainer {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    transition: border-color 0.2s;
+}
+
+.cardElementContainer:focus-within {
+    border-color: var(--button-color, #4a90e2);
+    box-shadow: 0 0 0 1px var(--button-color, #4a90e2);
+}
+
+.processingMessage{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f0f4ff;
+    border-radius: 4px;
+    color: #3f51b5;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.successMessage {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e8f5e9;
+    border-radius: 4px;
+    color: #2e7d32;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.checkmark {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.orderSuccessContent {
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.successIcon {
+    font-size: 3rem;
+    color: #4CAF50;
+    margin-bottom: 20px;
+    animation: fadeScale 0.5s ease-out;
+}
+
+@keyframes fadeScale {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    70% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.orderSuccessContent h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.orderSuccessContent p {
+    margin: 10px 0;
+    color: #555;
+}
+
+.orderSuccessContent p strong {
+    color: #333;
+}
+
+@media (max-width: 600px) {
+    .formRow {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .modalContainer {
+        width: 95%;
+    }
+    
+    .formActions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .backButton, .continueButton {
+        width: 100%;
+    }
+}
